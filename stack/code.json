@@ -1,0 +1,30 @@
+{
+  "Conditions": {},
+  "Mappings": {},
+  "Parameters": {
+    "CodeBucket": {
+      "Default": "softcraft-yak-code",
+      "Type": "String"
+    }
+  },
+  "Resources": {
+    "YakCodeBucket": {
+      "Type": "AWS::S3::Bucket",
+      "Properties": {
+        "BucketName": {
+          "Fn::Join": [
+            "-",
+            [
+              "spoonsapp-code",
+              {
+                "Ref": "Environment"
+              }
+            ]
+          ]
+        },
+        "Tags": []
+      }
+    }
+  },
+  "Outputs": {}
+}
